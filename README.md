@@ -1,29 +1,31 @@
+sudo apt install docker.io
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo docker pull vulnerables/web-dvwa
+sudo docker run --rm -it -p 8080:80 vulnerables/web-dvwa
 
 
 
+whois google.com
+spiderfoot -l 127.0.0.1:8080
+theHarvester -d google.com
+
+
+dig NS vulnweb.com
+
+nslookup vulnweb.com
+
+dnsenum vulnweb.com
+
+dnsrecon -d vulnweb.com -t brt
+
+host vulnweb.com
+
+fierce --domain vulnweb.com
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//sudo lsof -i :80 to check http service skip this
 
 
 
