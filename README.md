@@ -1,3 +1,35 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 from flask import Flask, request, render_template_string
 
 app = Flask(__name__)
@@ -74,6 +106,31 @@ hydra -l admin -P /usr/share/wordlists/rockyou.txt 127.0.0.1 ssh -t 2 -f
 
 medusa -h 127.0.0.1 -u admin -P /usr/share/wordlists/rockyou.txt -M ssh -t 4 -f
 medusa -h 127.0.0.1 -u admin -P /usr/share/wordlists/rockyou.txt -M ftp -t 4 -f
+
+john the ripper
+echo -n "ilovetushar" | md5sum
+echo -n "ilovetushar" | sha1
+
+nano hash.txt  //save the generated hash in this file
+
+
+john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+
+
+john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt --rules=best64 hash.txt
+
+
+hashcat -m 0 -a 0 hash.txt /usr/share/wordlists/rockyou.txt
+hashcat -m 0 hash.txt --show
+
+
+hashcat -m 0 -a 0 hash.txt /usr/share/wordlists/rockyou.txt \
+-r /usr/share/hashcat/rules/rockyou-30000.rule
+
+hashcat -m 0 -a 0 hash.txt /usr/share/wordlists/rockyou.txt --force
+
+hashcat --status
+
 
 
 
